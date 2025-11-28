@@ -9,17 +9,15 @@ from typing import List
 # --- 1. CONFIGURATION AND SCHEMA ---
 
 # Load environment variables from .env file
+# Assumes GEMINI_API_KEY="YOUR_API_KEY_HERE" is set in the .env file
 load_dotenv()
 
 # Define the structured output schema using Pydantic
-class Claim(BaseModel):
-    """Represents a single verifiable claim extracted from the text."""
-    claim_id: int = Field(description="A unique integer ID for this claim, starting from 1.")
-    statement: str = Field(description="The exact claim or assertion made in the text.")
-
-class ClaimList(BaseModel):
-    """The final list structure for all claims extracted."""
-    claims: List[Claim] = Field(description="A list containing all claims extracted from the input text.")
+class KeywordList(BaseModel):
+    """The structured output containing a list of keywords."""
+    keywords: List[str] = Field(
+        description="A list of 5 to 8 of the most important and representative keywords extracted from the text."
+    )
 
 
 # --- 2. LLM SETUP ---
@@ -27,18 +25,17 @@ class ClaimList(BaseModel):
 # Initialize the Gemini LLM
 # LiteLLM automatically uses the GEMINI_API_KEY environment variable.
 gemini_llm = LLM(
-    model='gemini/gemini-2.5-flash',
+    model='gemini/gemini-2.5-pro',
     temperature=0.0, # Low temperature for reliable extraction and JSON generation
-    # Setting max_retries ensures robustness in structured output generation
     max_retries=3 
 )
 
 # --- 3. AGENT DEFINITION ---
 
-claim_extractor_agent = Agent(
-    role='Structured Claim Extractor',
-    goal='Accurately identify all verifiable claims within a given text and structure them according to the required JSON schema.',
-    backstory='You are a meticulous language model specializing in parsing unstructured text into clean, valid JSON format. You are highly reliable in detecting subtle assertions and assigning accurate confidence scores.',
+keyword_extractor_agent = Agent(
+    role='Information Keyword Extractor',
+    goal='Identify and return the core technical and subject keywords from an input text, strictly adhering to the JSON schema.',
+    backstory='You are a skilled text analyst specializing in natural language processing (NLP) and subject matter indexing. Your primary function is to distill complex documents into essential keywords.',
     verbose=True,
     allow_delegation=False,
     llm=gemini_llm
@@ -60,40 +57,40 @@ If this image is real, it means something big is cooking 👀… share this arou
 
 extraction_task = Task(
     description=(
-        f"Analyze the following text and extract all distinct, factual claims. "
-        f"Ignore opinions, definitions, or predictions unless they contain a concrete, measurable assertion.\n\n"
+        f"Analyze the following text and extract 5 to 8 of the most relevant and technical keywords. "
+        f"The output must be a clean JSON array of strings.\n\n"
         f"TEXT TO ANALYZE:\n---\n{INPUT_TEXT}\n---"
     ),
-    expected_output="A list of claims strictly formatted as a JSON array conforming to the Pydantic ClaimList schema.",
-    agent=claim_extractor_agent,
+    expected_output="A JSON array of strings containing the key terms, conforming strictly to the KeywordList schema.",
+    agent=keyword_extractor_agent,
     # Crucial step: enforce structured output using the Pydantic model
-    output_pydantic=ClaimList
+    output_pydantic=KeywordList
 )
 
 # --- 5. CREW EXECUTION ---
 
-claim_crew = Crew(
-    agents=[claim_extractor_agent],
+keyword_crew = Crew(
+    agents=[keyword_extractor_agent],
     tasks=[extraction_task],
     process=Process.sequential,
     verbose=1
 )
 
 # Execute the crew
-print("--- Starting Claim Extraction ---")
-crew_result = claim_crew.kickoff()
+print("--- Starting Keyword Extraction ---")
+crew_result = keyword_crew.kickoff()
 
 # --- 6. OUTPUT PROCESSING ---
 
 # Access the structured Pydantic output directly
 if crew_result.tasks_output and hasattr(crew_result.tasks_output[0], 'pydantic'):
-    final_claim_list: ClaimList = crew_result.tasks_output[0].pydantic
+    final_keyword_list: KeywordList = crew_result.tasks_output[0].pydantic
     
     # Convert the Pydantic model to a Python dictionary
-    json_data = final_claim_list.model_dump()
+    json_data = final_keyword_list.model_dump()
 
     # Define the output file path
-    output_filename = "claims_output.json"
+    output_filename = "keywords_output.json"
     
     # Write the dictionary to a JSON file
     with open(output_filename, 'w') as f:
@@ -103,7 +100,6 @@ if crew_result.tasks_output and hasattr(crew_result.tasks_output[0], 'pydantic')
     print(json.dumps(json_data, indent=4))
     
     print("\n--- Programmatic Access Example ---")
-    for claim in final_claim_list.claims:
-        print(f"ID: {claim.claim_id} | Statement: {claim.statement}")
+    print(f"Keywords Found: {', '.join(final_keyword_list.keywords)}")
 else:
     print("\n--- Error: Failed to retrieve structured Pydantic output. ---")
