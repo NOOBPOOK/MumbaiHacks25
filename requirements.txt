@@ -1,3 +1,4 @@
 crewai
-dotenv
-langchain_openai
+google-genai
+pydantic
+python-dotenv

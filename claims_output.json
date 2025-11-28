@@ -1,0 +1,56 @@
+{
+    "claims": [
+        {
+            "claim_id": 1,
+            "statement": "A photo shows all the biggest tech bosses hanging out together over Thanksgiving dinner."
+        },
+        {
+            "claim_id": 2,
+            "statement": "Elon Musk is in the photo."
+        },
+        {
+            "claim_id": 3,
+            "statement": "Mark Zuckerberg is in the photo."
+        },
+        {
+            "claim_id": 4,
+            "statement": "Sundar Pichai is in the photo."
+        },
+        {
+            "claim_id": 5,
+            "statement": "Satya Nadella is in the photo."
+        },
+        {
+            "claim_id": 6,
+            "statement": "Tim Cook is in the photo."
+        },
+        {
+            "claim_id": 7,
+            "statement": "The individuals in the photo are sitting around a table."
+        },
+        {
+            "claim_id": 8,
+            "statement": "The individuals in the photo are laughing."
+        },
+        {
+            "claim_id": 9,
+            "statement": "The individuals in the photo are talking."
+        },
+        {
+            "claim_id": 10,
+            "statement": "Drinks are on the table in the photo."
+        },
+        {
+            "claim_id": 11,
+            "statement": "Someone is saying the photo was snapped right after a secret \u201csuper-AI summit\u201d."
+        },
+        {
+            "claim_id": 12,
+            "statement": "Someone is saying they met at this summit to decide the future of AI & Web."
+        },
+        {
+            "claim_id": 13,
+            "statement": "These guys (Elon Musk, Mark Zuckerberg, Sundar Pichai, Satya Nadella, Tim Cook) usually fight behind closed doors."
+        }
+    ]
+}
