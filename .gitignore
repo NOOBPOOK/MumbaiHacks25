@@ -1,0 +1,114 @@
+# ----------------------------------------
+# Python Bytecode / Cache
+# ----------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ----------------------------------------
+# Virtual Environment (your venv name)
+# ----------------------------------------
+mum25/
+mum25/*
+
+# If someone accidentally created sub-venvs
+*/mum25/
+*/venv/
+venv/
+env/
+.env/
+ENV/
+
+# ----------------------------------------
+# Environment Files (in ANY folder)
+# ----------------------------------------
+.env
+*.env
+**/.env
+**/*.env
+
+# Prevent committing secrets
+secret.json
+secrets.json
+config.json
+
+# ----------------------------------------
+# Build / Distribution
+# ----------------------------------------
+build/
+dist/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+
+# ----------------------------------------
+# Jupyter Notebook Cache
+# ----------------------------------------
+.ipynb_checkpoints/
+*.nbconvert/
+
+# ----------------------------------------
+# Logs / Outputs
+# ----------------------------------------
+logs/
+*.log
+*.out
+*.tmp
+
+# ----------------------------------------
+# OS Level Files
+# ----------------------------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------------------------
+# IDE / Editor Generated
+# ----------------------------------------
+.vscode/
+.vscode/*
+.vs/
+.idea/
+*.iml
+
+# ----------------------------------------
+# MyPy / Pyright / Pylance
+# ----------------------------------------
+.mypy_cache/
+.dmypy.json
+pyrightconfig.json
+.pylint.d/
+
+# ----------------------------------------
+# LangChain / LangGraph cache
+# ----------------------------------------
+.lc_cache/
+.langchain/
+langchain.db
+*.lccache
+
+# ----------------------------------------
+# Cache & Temp
+# ----------------------------------------
+.cache/
+tmp/
+temp/
+**/tmp/
+**/temp/
+
+# ----------------------------------------
+# Node (if using frontend)
+# ----------------------------------------
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# ----------------------------------------
+# Other Common Files
+# ----------------------------------------
+*.bak
+*.swp
+*.swo
+*.zip
+*.tar
+*.gzip

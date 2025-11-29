@@ -1,0 +1,41 @@
+[
+  {
+    "news": "🔥 BREAKING – UNBELIEVABLE!!! Just came across this mind-blowing photo of major tech leaders together at a Thanksgiving dinner, including Elon Musk, Mark Zuckerberg, Sundar Pichai, Satya Nadella and Tim Cook, with claims it followed a secret 'super-AI summit' — though none of this is verified.",
+    "images": [
+      "dataset/images/ceo1.png",
+      "dataset/images/ceo2.png",
+      "dataset/images/ceo3.png"
+    ]
+  },
+  {
+    "news": "A fake tweet falsely claiming that Home Minister Amit Shah announced he has bone cancer and appealed to Muslims for prayers during Ramzan is circulating on social media.",
+    "images": [
+      "dataset/images/amitshah.png"
+    ]
+  },
+  {
+    "news": "Pakistan’s Field Marshal Syed Asim Munir, in a public embarrassment, has been caught passing off a 2019 image of exercises being carried out by the Chinese People’s Liberation Army, as evidence of “Pakistan’s operational success in Operation Bunyan-um-Marsoos” against India. As per a press release by the Inter-Services Public Relations, the media wing of the Pakistan Armed Forces, at a dinner event held by Pakistan Field Marshal Munir “to honour the political leadership, steadfast commitment of the Armed Forces, and the indomitable spirit of the people of Pakistan,” he gifted a framed picture to Pakistan Prime Minister Shehbaz Sharif showing rockets being launched. ‘Operation Bunyan-um-Marsoos’ reads the title below the image, while the caption below that describes an operation by the Regiment of Pakistan Artillery. The Pakistan Army named its retaliation to India’s Operation Sindoor as ‘Operation Bunyan-um-Marsoos. What comes off as odd is the picture’s striking resemblance to an earlier image available on the website of China’s Ministry of Defence. The 2019 image by Chinese military displays a night raid exercise of long-range multiple launch rocket systems in northwest China. While China’s image contains only a singular rocket launcher prominently in the frame, the picture being presented by Mr. Munir to Mr. Shehbaz prominently shows at least three launchers operating simultaneously. However, only a cursory glance at both the images reveal the same exact background showing a large plume of smoke behind the Chinese launcher and the purported Pakistani launchers.",
+    "images": [
+      "dataset/images/pakistan.png"
+    ]
+  },
+  {
+    "news": "Karen Allen: This message claims that the pH of coronavirus is 5.5 to 8.5 and suggests eating alkaline foods like lemon, lime, avocado, garlic, mango, tangerine, pineapple, dandelion, and orange to 'beat' the virus; however, this is medically false and not supported by any scientific evidence.",
+    "images": []
+  },
+  {
+    "news": "",
+    "images": [
+      "dataset/images/tweet.png"
+    ]
+  },
+  {
+    "news": "The 4-year-old girl Aarohi, who went missing in Mumbai, has finally been found in an orphanage in Varanasi, bringing an end to months of uncertainty for her family. Salute to the officers 🫡❤️ !",
+    "images": [
+      "dataset/images/arohi.png"
+    ]
+  },
+  {
+    "news": "🔥 “ALERT — CASH PAYMENTS BAN IN 2026!!!” 🔥 🚨 IMPORTANT — SHARE WITH ALL YOUR CONTACTS!!! 🚨 They’re making a law from January 2026 that every purchase over £20 will now require digital-ID verification. 💳📲 That means cash won’t work for big buys — even daily shopping! ⚠️ Worse: if you use cash to pay repeatedly, you could be fined £250. And shops accepting cash could get hit with £500 fines! 🛑 Every cash transaction will be logged, tracked and linked to your identity 🔍 — so no more “anonymous payments.” They’re calling it the “Secure Commerce Regulation” — basically a move to control all spending, watch where people buy what, and kill privacy forever. 😡 Don’t wait — tell everyone now to use cash wisely and share this message before it’s too late!!! 📢 (Note: this claim is false and not based on any real legislation.)"
+  }
+]
