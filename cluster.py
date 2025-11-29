@@ -29,7 +29,7 @@ if not records:
 groups = defaultdict(list)
 
 for row in records:
-    key = row[GROUP_BY_COLUMN]
+    key = row[GROUP_BY_COLUMN] # type:ignore
     groups[key].append(row)
 
 # Now `groups` is a dict like:
